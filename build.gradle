@@ -1,0 +1,40 @@
+plugins {
+    id 'org.springframework.boot' version '2.2.1.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+    id 'io.freefair.lombok' version '5.0.0-rc6' apply false
+}
+
+group 'com.cas'
+version '0.0.1-SNAPSHOT'
+
+repositories {
+    maven { url 'https://maven.aliyun.com/repository/public/' }
+    maven { url 'https://maven.aliyun.com/repository/central/' }
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    compileOnly 'org.springframework.boot:spring-boot-configuration-processor'
+
+    // 其他
+    implementation 'com.alibaba:fastjson:1.2.61'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation "org.projectlombok:lombok:1.18.12"
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    // 本地jar,测试springboot-starter
+    implementation 'com.cas:cas-springboot-starter:0.0.5-SNAPSHOT'
+
+    //hutool
+    testImplementation("cn.hutool:hutool-all:5.7.7")
+    // aop
+    implementation 'org.springframework.boot:spring-boot-starter-aop'
+
+    implementation 'org.bytedeco:javacv-platform:1.5.7'
+}
+
+test {
+    useJUnitPlatform()
+}
